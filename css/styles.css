@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css?family=Space+Mono|Asul|Work+Sans|Patua+One|Kreon|Merriweather|Rambla');
+
+
+
+.container, .container-fluid, .jumbotron {font-family: Work Sans;}
+#article:hover{opacity: 0.7;}
+
+
+
+
+html,body
+{
+    width: 100%;
+    height: 100%;
+    background-color: #FBFCFD;
+}
+
+
+
+/*General formatting*/
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Space Mono;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+p.description{
+  font-size: 12.9px;
+  padding-top: 7px;
+  padding-bottom: 12px;
+}
+
+
+p, .form-group, ol, ul, li  {
+  font-family: Work Sans;
+  color: #040403; /*rich black */
+}
+a { 
+  color:inherit;
+}
+a:hover{
+  text-decoration:none;
+  color:#5DBDC5;
+}
+
+#pewter{
+  /*color: #D33F49; old one */
+  color: #92ADB6;
+}
+#middleblue{
+  color: #78D5D7;
+}
+#shadowblue{
+  color: #4C4C47;
+}
+
+.centerBlock{
+
+display: table;
+margin: auto;
+
+}
+
+#date{
+  font-family: Kreon;
+  font-size: 16px;
+  color: #222222;
+}
+
+/*General formatting*/
+
+.colored-div{
+background-color: #E2E2E2;
+border-radius: 20px;
+
+}
+
+.bgrd{
+  background-color: #DAF2F3;
+  border-radius: 7px;
+}
+
+
+  .topleft{
+    position:absolute;
+    max-width: 100%;
+    max-height: 100%;
+    top:5px;
+    left:5px;
+    background-color: white;
+    opacity: .7;
+  }
+
+
+
+
+
+/*NAVBAR STUFF*/
+.navbar{padding-top: 20px;}
+.navbar-brand {color:black !important; font-size: 40px !important; font-family: Space Mono;}
+.navbar-brand:hover {opacity: 0.77; color: #5DBDC5 !important;}
+ul.nav a{color: #1A1B25 !important; font-size: 18px;}
+ul.nav a:hover { color: #5DBDC5 !important; }
+li.active a{ background-color: grey !important; }
+li.active a:hover{ background-color: none !important; }
+/*^^^^^^ NAVBAR STUFF ^^^^^^^^*/
+
+
+/*JUMBOTRON STUFF*/
+.jumbotron {
+  background: none;
+  padding-right:4%; 
+  padding-left:4%;
+}
+
+.jumbotron p {
+  font-size: 17px;
+  text-align: center;
+}
+/*JUMBOTRON STUFF*/
+
+
+
+
+
+#morearticles:hover{
+  opacity: 0.7; 
+   /* border-left: 3px solid;*/
+}
+
+
+
+/*STICKY FOOTER STUFF*/
+.footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/**{
+  margin: 0;
+}*/
+
+.wrapper {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -120px; 
+  max-width: 1400px;
+}
+.wrapper::after {
+  content: "";
+  display: block;
+}
+footer, .wrapper::after {
+  height: 120px; 
+}
+footer{
+  background: #F6FBFB;
+  font-size: 17.7px;
+}
+/*STICKY FOOTER STUFF*/
+
+

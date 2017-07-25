@@ -1,0 +1,73 @@
+h1 {
+	font-size: 40px;
+}
+
+h4{
+	color: #222222;
+}
+
+p{
+	font-size: 14.7px;
+	margin-bottom: 20px;
+}
+
+p:last-child{
+	margin-bottom: 5px;
+}
+
+.wrapper{
+	/*max-width: 1280px;*/
+	padding-left: 4%;
+	padding-right: 4%;
+}
+
+#sorrymessage {
+	text-align: center;
+}
+
+#article-image {
+	max-height: 80%;
+	max-width: 70%;
+}
+
+#date {
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+
+.share {
+	text-align: center;
+	font-size: 30px;
+}
+
+.very-top {
+	padding-left: 2%;
+}
+
+
+
+/*LIKE BUTTON*/
+.like-area {
+	font-size: 20px;
+	color: #92ADB6;
+}
+
+#heart {
+	color: #92ADB6;
+	font-size: 27px;
+	margin-right: -10px;
+	margin-bottom: -10px;
+}
+
+#heart:hover {
+	transform: scale(1.15);
+}
+
+/*gets rid of a weird blue outline in Google Chrome*/
+button:focus {outline:0;}
+button {
+	outline: none !important;
+	border: none;
+	border-style: none;
+}
+/***************/

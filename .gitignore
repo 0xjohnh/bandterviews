@@ -1,0 +1,18 @@
+#article_text
+/article_text/
+
+#DS_Store
+**/.DS_Store
+
+#non-code files
+/non
+
+#db config file(s)
+includes/db-config.php
+
+#images
+/images/
+
+#php testing
+phptestpage.php
+
