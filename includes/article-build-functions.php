@@ -186,20 +186,26 @@ function format_date($date_string)
       $month = "December"; break;
   }
 
-  $day = substr($date_string, 8);
+  $day = substr($date_string, 8, 2);
 
   if($day=="01" || $day=="21" || $day=="31"){
-    $day = substr($day,1)."st";
+    $day_ending = "st";
   } else if($day=="02" || $day=="22"){
-    $day = substr($day,1)."nd";
+    $day_ending = "nd";
   } else if($day=="03" || $day=="23"){
-    $day = substr($day,1)."rd";
+    $day_ending = "rd";
   } else {
-    $day = $day."th";
+    $day_ending = "th";
   }
 
+
+  if(substr($day, 0, 1) == "0") {
+    $day = substr($day, 1, 1);
+  }
+
+
   $year = substr($date_string, 0 , 4);
-  $new_date = $month . " " . $day . ", " . $year; 
+  $new_date = $month . " " . $day . $day_ending . ", " . $year; 
   return $new_date;
 }
 

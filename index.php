@@ -52,7 +52,7 @@ include('includes/article-build-functions.php');
 
         <a href = <?= $link1 ?> > 
           <div class = "imageContainer center-block" style="position: relative; max-width: 100%">
-            <img src="images/lost-son-photo.jpg" alt="Lost Son" class="centerBlock" style="max-height:100%; max-width:100%; margin-bottom: 0px; position: relative; filter: grayscale(0);   border-radius: 6px; ">
+            <img src=<?= $feat_interview[0][article_image_path] ?> alt=<? $feat_interview[0][article_title] ?> class="centerBlock" style="max-height:100%; max-width:100%; margin-bottom: 0px; position: relative; filter: grayscale(0);   border-radius: 6px; ">
             <div class="topleft center-block"> 
               <h2><span id="pewter"><?= $feat_interview[0][article_title] ?></span></h2>
             </div>
