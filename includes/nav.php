@@ -13,11 +13,10 @@
             <!--   <li><a href="../coming-soon.php">More Interviews</a></li>
               <li><a href="../coming-soon.php">Playlists</a></li> -->
               <li><a href= "../coming-soon.php"><span class="glyphicon glyphicon-info-sign"></span></a></li>
-              <li class=> <a href="../contact-page.php"><span class="glyphicon glyphicon-envelope"></span></a>
+              <li> <a href="../contact-page.php"><span class="glyphicon glyphicon-envelope"></span></a>
               </li>  
-       <!--        <li><a href= "../articles/The_Best_Daws_For_Beginners.php">daw artic.</a></li> -->
-<!--               <li><a href= "../articles/article.php">Template Testing </a></li>
-              <li><a href= "../phptestpage.php">php testing</a></li> -->
+              
+
             </ul>
 
 
@@ -36,6 +35,7 @@ if($user->is_loggedin()==""){
 
 echo <<<EOT
   <ul class="nav navbar-nav navbar-right">
+    <li style="margin-right: -13px;" ><a href = "../mypage.php">My Page  <sup id = "new-superscript">NEW</sup>  </a></li>
     <li><a href="../logout.php">logout <span class='glyphicon glyphicon-off' id='pewter' style='font-size: 15px'></span></a></li>
   </ul>
 EOT;

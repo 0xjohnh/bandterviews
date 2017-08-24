@@ -9,8 +9,6 @@ require_once ROOT.'includes/article-build-functions.php';
 if( isset($_GET['id']))
 {
 	$which_id = $_GET['id'];
-	$can_build = TRUE;
-
 } 
 else 
 {

@@ -107,6 +107,12 @@ li.active a:hover{ background-color: none !important; }
 /*^^^^^^ NAVBAR STUFF ^^^^^^^^*/
 
 
+#new-superscript {
+  color: hotpink;
+  margin-left: -4px;
+  font-size: 12px;
+}
+
 /*JUMBOTRON STUFF*/
 .jumbotron {
   background: none;
@@ -122,12 +128,32 @@ li.active a:hover{ background-color: none !important; }
 
 
 
-
-
 #morearticles:hover{
   opacity: 0.7; 
    /* border-left: 3px solid;*/
 }
+
+
+/*MYPAGE STUFF*/
+
+.image-icon-size {
+  height: auto;
+  max-width: 140px;
+  overflow: hidden;
+}
+
+.liked-articles-row {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+
+.liked-articles-row:hover{
+  opacity: .85;
+}
+
+
+/*MYPAGE STUFF*/
 
 
 
@@ -136,10 +162,6 @@ li.active a:hover{ background-color: none !important; }
     padding-right: 15px;
     padding-left: 15px;
 }
-
-/**{
-  margin: 0;
-}*/
 
 .wrapper {
   min-height: 100%;
