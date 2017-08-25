@@ -1,10 +1,8 @@
 <?php
 session_start();
-
 include_once("../config.php"); // this is for defining the site root
 include('../includes/header.php'); 
 require_once ROOT.'includes/article-build-functions.php';
-
 
 if(isset($_GET['id']))
 {
@@ -20,11 +18,9 @@ else
 // DB QUERY START - gets the specified article row (specified by which_id)
 try
 {
-
 	$stmt = $DB_con->prepare('SELECT * FROM Article WHERE article_id = ?');
 	$stmt -> execute([$which_id]);
 	$result = $stmt->fetchAll();
-
 }
 catch(PDOException $e)
 {
@@ -44,7 +40,6 @@ if($user->is_loggedin()!="")
 
 	//DEFINE CURRENT USER ID
 	$current_user_id = $_SESSION['user_session'];
-
 
 	// DB QUERY START - gets row to see if user already liked the current article
 	try
@@ -72,7 +67,6 @@ if($user->is_loggedin()!="")
 		$heart_is_empty = false;
 		$heart_loaded = "yes";
 	}
-
 	
 }
 
@@ -81,7 +75,6 @@ if($user->is_loggedin()!="")
 $photoCredits="";
 if($can_build===TRUE)
 {
-
 	//define path to .txt file, clean it
 	$path_to_text = $result[0][article_body_path]; 
 	cleanString($path_to_text);
@@ -109,7 +102,6 @@ if($can_build===TRUE)
 		//if the picture doesn't exist then don't display it.
 		if($result[0][article_image_path]!=='')
 		{
-
 			$image_src = $result[0][article_image_path];
 
 			echo "<img src = {$image_src} alt = 'article-image' id = 'article-image' class= 'center-block'> 
@@ -121,7 +113,6 @@ if($can_build===TRUE)
 	?>
 	</div>
 
-
 	<!-- ARTICLE DATE -->
 	<p id="date">Published on <?= format_date($result[0][article_date]); ?> in interviews</p>
 
@@ -130,7 +121,6 @@ if($can_build===TRUE)
 
 
 <script>
-
 
 $(document).ready(function(){
 
@@ -287,7 +277,46 @@ $(document).ready(function(){
 
 });
 
+// popover initialization 
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+});
 </script>
+
+
+<?php 
+
+//gets the usernames of all users who liked this article
+try
+{
+	$stmt = $DB_con->prepare('SELECT user_username FROM User WHERE user_id IN (SELECT user_id FROM Article_Like_History WHERE article_id= ?)');
+	$stmt -> execute([$current_article_id]);
+	$usernames_array = $stmt->fetchAll();
+}
+catch(PDOException $e)
+{
+	echo $e->getMessage();
+}
+
+$all_likers = " "; 
+
+if(!empty($usernames_array)){
+	for($i = 0; $i < count($usernames_array); $i++)
+	{
+		$all_likers .= $usernames_array[$i][user_username];
+		
+		if($i != count($usernames_array) - 1)
+		{
+			$all_likers .= ", ";
+		}
+	}
+} 
+else
+{
+	$all_likers .= "none yet!";
+}
+
+?>
 
 
 <!-- LIKE BUTTON -->
@@ -295,7 +324,11 @@ $(document).ready(function(){
 	<button type = "button" class = "btn btn-link" id ="like-button">
 		<span class = "glyphicon glyphicon-heart-empty"  id = "heart"></span>
 	</button>
-	<span style = "font-size: 17.5px;" id = "likecount">loading like count..</span>
+
+
+	<span style = "font-size: 17.5px;" id = "likecount" data-toggle="popover" data-trigger="hover" title="Likers" data-content="<?= $all_likers; ?>">loading like count..</span>
+
+
 	<span style = "font-size: 17.5px; color: #5DBDC5;" id = "loginmessage"></span>
 </div>
 

@@ -273,11 +273,49 @@ $(document).ready(function(){
 
 	}
 
+});
 
-
+// popover initialization 
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
 });
 
 </script>
+
+
+<?php 
+
+//gets the usernames of all users who liked this article
+try
+{
+	$stmt = $DB_con->prepare('SELECT user_username FROM User WHERE user_id IN (SELECT user_id FROM Article_Like_History WHERE article_id= ?)');
+	$stmt -> execute([$current_article_id]);
+	$usernames_array = $stmt->fetchAll();
+}
+catch(PDOException $e)
+{
+	echo $e->getMessage();
+}
+
+$all_likers = " "; 
+
+if(!empty($usernames_array)){
+	for($i = 0; $i < count($usernames_array); $i++)
+	{
+		$all_likers .= $usernames_array[$i][user_username];
+		
+		if($i != count($usernames_array) - 1)
+		{
+			$all_likers .= ", ";
+		}
+	}
+} 
+else
+{
+	$all_likers .= "none yet!";
+}
+
+?>
 
 
 <!-- LIKE BUTTON -->
@@ -285,9 +323,14 @@ $(document).ready(function(){
 	<button type = "button" class = "btn btn-link" id ="like-button">
 		<span class = "glyphicon glyphicon-heart-empty"  id = "heart"></span>
 	</button>
-	<span style = "font-size: 17.5px;" id = "likecount">loading like count..</span>
+
+
+	<span style = "font-size: 17.5px;" id = "likecount" data-toggle="popover" data-trigger="hover" title="Likers" data-content="<?= $all_likers; ?>">loading like count..</span>
+
+
 	<span style = "font-size: 17.5px; color: #5DBDC5;" id = "loginmessage"></span>
 </div>
+
 
 
 
